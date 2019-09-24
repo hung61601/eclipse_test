@@ -5,4 +5,7 @@ public class Multiplier {
 		return a*b;
 	}
 
+	public Oprand multiply(Oprand a, Oprand b) {
+		return  a.multiply(b);
+	}
 }
