@@ -5,7 +5,7 @@ public class Multiplier {
 		return a*b;
 	}
 
-	public Oprand multiply(Oprand a, Oprand b) {
+	public <T> Oprand<T> multiply(Oprand<T> a, Oprand<T> b) {
 		return  a.multiply(b);
 	}
 }

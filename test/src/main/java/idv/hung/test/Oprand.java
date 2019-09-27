@@ -1,14 +1,14 @@
 package idv.hung.test;
 
-public abstract class Oprand {
+public abstract class Oprand<T> {
 
-	protected int content;
+	protected T content;
 	
-	public Oprand multiply(Oprand o2) {
+	public Oprand<T> multiply(Oprand<T> o2) {
 		return null;
 	}
 
-	public int getContent() {
+	public T getContent() {
 		return content;
 	}
 }
