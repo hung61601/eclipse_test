@@ -6,7 +6,7 @@ public class IntegerOprand extends Oprand<Integer>{
 		this.content = a ;
 	}
 	
-	public Oprand<Integer> multiply(Oprand<Integer> o2) {
-		return new IntegerOprand(this.content*((int) o2.getContent()));
+	public Oprand<Integer> multiply(Oprand<Integer> o) {
+		return new IntegerOprand(this.content*((int) o.getContent()));
 	}
 }
