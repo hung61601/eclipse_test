@@ -1,83 +1,73 @@
 package idv.hung.test;
 
 // 子類定義
-class Actor extends Actor_Base {
-
-	public Actor(String name) {
-		super(name);
+class Swordsman extends Actor {
+	private int str;
+	private Weapon weapon;
+	private Armor armor;
+	public void setWeapon(Weapon newWeapon) {
+		weapon = newWeapon;
 	}
-
-	@Override
-	public String message() {
-		return "Hello, everyone.";
+	public void setArmor(Armor newArmor) {
+		armor = newArmor;
 	}
-
-	@Override
-	public String skill() {
-		return "I can speak Chinese.";
+	public void setStr(int num) {
+		str = num;
 	}
-	
 }
 
-class Vase extends Furniture_Base {
-	private String area;
-	
-	public Vase(String name, String type, String area) {
-		super(name, type);
-		this.area = area;
+class Enchanter extends Actor {
+	private int Int;
+	private Weapon weapon;
+	private Armor armor;
+	public void setWeapon(Weapon newWeapon) {
+		weapon = newWeapon;
 	}
-	
-	public String MadeIn() {
-		return area;
+	public void setArmor(Armor newArmor) {
+		armor = newArmor;
 	}
-	
-	public String getName()
-	   {
-		  return this.name;
-	   }
-	
-	public String getType()
-	   {
-		  return this.type;
-	   }
-	
+	public void setInt(int num) {
+		Int = num;
+	}
 }
 
-class House extends House_Base {
-	private Furniture_Base[] furnitures;
-	private int furSize;
-	
-	public House(Actor_Base actor) {
-		super(actor);
-		furSize = 0;
-		furnitures = new Furniture_Base[10];
+class Weapon extends Equip {
+	private int atk;
+	public void setAtk(int num) {
+		atk = num;
 	}
-
-	@Override
-	public Furniture_Base[] getFumitures() {
-		return furnitures;
-	}
-	
-	public void AddFumitures(Furniture_Base f) {
-		furnitures[furSize++] = f;
-	}
-	
 }
+
+class Armor extends Equip {
+	private int def;
+	public void setDef(int num) {
+		def = num;
+	}
+}
+
 //======================================================
 
 public class Run {
 
 	public static void main(String[] args) {
-		Vase v = new Vase("Colored Vase", "Vase", "Canada");
-		Actor a = new Actor("Bob");
-		a.setBirthday(1998, 9, 15);
-		House h = new House(a);
-		h.AddFumitures(v);
-		//驗證結果
-		System.out.printf("The House owned furniture is：%s %n", h.getFumitures()[0].name);
-		System.out.printf("House owner is：%s %n", h.own().getName());
-		System.out.printf("House owner's message：%s %n", h.own().message());
-		System.out.printf("personal skill：%s %n", h.own().skill());
+		SwordsmanFactory sf = new SwordsmanFactory();
+		sf.strength(25);
+		Swordsman s = sf.produce();
+		EnchanterFactory ef = new EnchanterFactory();
+		ef.Intelligence(60);
+		Enchanter e = ef.produce();
+		WeaponFactory wf = new WeaponFactory();
+		Weapon w1 = wf.produce();
+		ArmorFactory af = new ArmorFactory();
+		Armor a1 = af.produce();
+		Armor a2 = af.produce();
+		
+		s.setWeapon(w1);
+		System.out.println("Swordsman equipped with weapon.");
+		s.setArmor(a1);
+		System.out.println("Swordsman equipped with armor.");
+		e.setArmor(a2);
+		System.out.println("Enchanter equipped with armor.");
 	}
 
 }
