@@ -7,7 +7,7 @@ public interface Factory {
 //各類工廠
 class SwordsmanFactory implements Factory {
 	private int str;
-	private String name;
+	private String name = "Swordsman";
 	
 	public void strength(int s) {
 		str = s;
@@ -29,7 +29,7 @@ class SwordsmanFactory implements Factory {
 
 class EnchanterFactory implements Factory {
 	private int Int;
-	private String name;
+	private String name = "Enchanter";
 	
 	public void Intelligence(int i) {
 		Int = i;
@@ -50,11 +50,14 @@ class EnchanterFactory implements Factory {
 }
 
 class WeaponFactory implements Factory {
+	private String name = "default Weapon";
 	private int atk = 50;
-	private String name = "Weapon1";
 	
 	public void name(String n) {
 		name = n;
+	}
+	public void attack(int n) {
+		atk = n;
 	}
 	public String showMessage() {
 		return "Produced a Weapon.";
@@ -69,11 +72,14 @@ class WeaponFactory implements Factory {
 }
 
 class ArmorFactory implements Factory {
+	private String name = "default Armor";
 	private int def = 12;
-	private String name = "Armor1";
 	
 	public void name(String n) {
 		name = n;
+	}
+	public void defense(int n) {
+		def = n;
 	}
 	public String showMessage() {
 		return "Produced a Armor.";

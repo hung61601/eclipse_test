@@ -14,4 +14,29 @@ public abstract class Equip implements Item {
 	public String[] getCommands() {
 		return commands;
 	};
+	public void showStatus() {
+		// 讓子類重寫
+	}
+}
+
+//子類定義
+
+class Weapon extends Equip {
+	private int atk;
+	public void setAtk(int num) {
+		atk = num;
+	}
+	public int getAtk() {
+		return atk;
+	}
+}
+
+class Armor extends Equip {
+	private int def;
+	public void setDef(int num) {
+		def = num;
+	}
+	public int getDef() {
+		return def;
+	}
 }
