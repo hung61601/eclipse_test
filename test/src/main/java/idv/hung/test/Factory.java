@@ -1,55 +1,17 @@
 package idv.hung.test;
 
-public interface Factory {
-	String showMessage();
+public abstract class Factory {
+	protected static LogCache cache;
+	
+	public static void setCache(LogCache c) {
+		cache = c;
+	}
 }
 
 //各類工廠
-class SwordsmanFactory implements Factory {
-	private int str;
-	private String name = "Swordsman";
-	
-	public void strength(int s) {
-		str = s;
-	}
-	public void name(String n) {
-		name = n;
-	}
-	public String showMessage() {
-		return "Produced a Swordsman.";
-	}
-	public Swordsman produce() {
-		Swordsman product = new Swordsman();
-		product.setName(name);
-		product.setStr(str);
-		System.out.println(showMessage());
-		return product;
-	}
-}
 
-class EnchanterFactory implements Factory {
-	private int Int;
-	private String name = "Enchanter";
-	
-	public void Intelligence(int i) {
-		Int = i;
-	}
-	public void name(String n) {
-		name = n;
-	}
-	public String showMessage() {
-		return "Produced a Enchanter.";
-	}
-	public Enchanter produce() {
-		Enchanter product = new Enchanter();
-		product.setName(name);
-		product.setInt(Int);
-		System.out.println(showMessage());
-		return product;
-	}
-}
-
-class WeaponFactory implements Factory {
+/*
+class WeaponFactory extends Factory {
 	private String name = "default Weapon";
 	private int atk = 50;
 	
@@ -71,7 +33,7 @@ class WeaponFactory implements Factory {
 	}
 }
 
-class ArmorFactory implements Factory {
+class ArmorFactory extends Factory {
 	private String name = "default Armor";
 	private int def = 12;
 	
@@ -92,3 +54,4 @@ class ArmorFactory implements Factory {
 		return product;
 	}
 }
+*/

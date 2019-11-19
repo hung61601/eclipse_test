@@ -30,33 +30,3 @@ public abstract class Actor implements Item {
 	};
 	public abstract void showStatus();
 }
-
-//子類定義
-
-class Swordsman extends Actor {
-	private int str;
-	public void setStr(int num) {
-		str = num;
-	}
-	public int getStr() {
-		return str;
-	}
-	@Override
-	public void showStatus() {
-		System.out.printf("My STR has %d points.%n", str);
-	}
-}
-
-class Enchanter extends Actor {
-	private int Int;
-	public void setInt(int num) {
-		Int = num;
-	}
-	public int getInt() {
-		return Int;
-	}
-	@Override
-	public void showStatus() {
-		System.out.printf("My INT has %d points.%n", Int);
-	}
-}
